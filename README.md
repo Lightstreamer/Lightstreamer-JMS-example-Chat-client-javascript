@@ -1,6 +1,6 @@
 # Lightstreamer JMS Gateway Chat Demo Client for JavaScript #
 
-This project includes a front-end example based on the Chat demo for Lighstreamer JMS gateway.
+This project includes a front-end example based on the Chat demo for Lightstreamer JMS gateway.
 
 ## Basic Chat Demo ##
 
