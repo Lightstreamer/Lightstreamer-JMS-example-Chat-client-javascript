@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<!--
+  LIGHTSTREAMER - www.lightstreamer.com
+  JMS Chat Demo
+
+  Copyright 2013 Weswit s.r.l.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <title>Lightstreamer :: JMS Chat Demo</title>
+  <link rel="stylesheet" type="text/css" href="css/chat.css" />
+  <script src="require.js"></script>
+  <script src="lightstreamer.js"></script>
+  <script src="lightstreamer-jms.js"></script>
+</head>
+
+<body>
+  <div id="wrap">
+    <table width="500" border="0">
+      <tr>
+        <td><a href="http://www.lightstreamer.com" target="_blank">
+          <img src="images/logo.png" alt="LIGHTSTREAMER" hspace="0" border="0" /></a></td>
+        <td class="demoTitle">JMS CHAT DEMO</td>
+      </tr>
+    </table>
+
+    <br />
+
+    <!-- Message container; the scrollbar will be handled by Lightstreamer -->
+    <div id="message_scroll" class="messagePanel">
+      <!-- message row template; will be cloned for each incoming message -->
+      <div class="messageContainer" id="messages" data-source="lightstreamer">
+        <span class="messageTimestamp" data-source="lightstreamer" data-field="timestamp"></span>
+        <br />
+        <div class="messageText" data-source="lightstreamer" data-field="message"></div>
+      </div>
+    </div>
+
+    <!-- message submission form -->
+    <form onSubmit="submitForm(); return false;" class="formPanel">
+      <div class="sendTitle">Send a message:</div>
+      <div class="formElements">
+        <input id="user_message" type="text" size="70" />
+        <input id="mex_button" type="submit" disabled value="Send" />
+      </div>
+    </form>
+  </div>
+
+	<!-- Application code -->
+	<script type="text/javascript">
+
+		// References for later use
+		var connection= null;
+		var topicSession= null;
+		var queueSession= null;
+		var row= 1;
+
+		require(["ConnectionFactory", "DynaGrid", "StatusWidget"], function(ConnectionFactory, DynaGrid, StatusWidget) {
+			ConnectionFactory.createConnection(function(conn) {
+				connection= conn;
+
+				// Connection succeeded, topic subscription
+				topicSession= conn.createSession(false, "PRE_ACK");
+				var topic= topicSession.createTopic("chatTopic");
+				var consumer= topicSession.createConsumer(topic, null);
+
+				// Create the DynaGrid
+				var chatGrid= new DynaGrid("messages",true);
+
+				chatGrid.setMaxDynaRows("unlimited"); // The grid will expand with no limits
+				chatGrid.setAutoScroll("ELEMENT", "message_scroll"); // Automatic scrolling for new messages
+				chatGrid.setAutoCleanBehavior(true, false);
+				chatGrid.addListener({
+					onVisualUpdate: function(key, info, domNode) {
+						if (info == null) {
+
+						    // Cleaning
+							return;
+						}
+
+						info.setHotTime(1000); // Message highlighting time
+						info.setHotToColdTime(2500); // Highlight fading time
+						info.setCellAttribute("message", "red", "#000090", "color");
+
+						// Set background color for the new row
+						domNode.style.backgroundColor= "#FFFFE0";
+					}
+				});
+
+				// Add listener to message consumer
+				consumer.setMessageListener({
+					onMessage: function(message) {
+
+						// Message received
+						var simpleChatMessage= message.body;
+
+						// Update the dyna grid
+						chatGrid.updateRow(row, simpleChatMessage);
+						row++;
+					}
+				});
+
+				// Start the connection
+				conn.start();
+
+			}, function(errorCode, errorMessage) {
+
+				// Connection failed, show the error
+				alert("Error: " + errorCode + " " + errorMessage);
+
+			}, "http://localhost:8080/", "JMS", "HornetQ",  // Change data adapter here
+				null, null, function(lsClient) {
+
+				// Enable connection sharing and status widget (optional)
+				lsClient.connectionSharing.enableSharing("JMSDemoCommonConnection", "ATTACH", "CREATE");
+				lsClient.addListener(new StatusWidget("left", "0px", true));
+
+				// Add listener to enable buttons only when connected
+				lsClient.addListener({
+					onStatusChange: function(newStatus) {
+						if (newStatus.indexOf("CONNECTED") == 0)
+							document.getElementById("mex_button").disabled= false;
+						else
+							document.getElementById("mex_button").disabled= true;
+					}
+				});
+			});
+		});
+
+	  	function submitForm() {
+			var textField= document.getElementById("user_message");
+			if (textField) {
+		  		var text= textField.value;
+		  		textField.value = "";
+
+		  		if (!text) {
+					alert("Can't send an empty message");
+
+		  		} else {
+					var mex= "CHAT|" + text;
+
+					if (queueSession == null)
+						queueSession= connection.createSession(false, "AUTO_ACK");
+
+					// Send message to chat queue
+					var queue= queueSession.createQueue("chatQueue");
+					var producer= queueSession.createProducer(queue, null);
+
+					var msg= queueSession.createTextMessage(mex);
+					producer.send(msg);
+		  		}
+			}
+	  	}
+	</script>
+
+</body>
+
+</html>
