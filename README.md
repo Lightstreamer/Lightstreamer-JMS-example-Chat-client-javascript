@@ -19,7 +19,7 @@ Before you can run the demo of this project some dependencies need to be solved:
 -  Get the require.js file form [requirejs.org](http://requirejs.org/docs/download.html) and put it in the root folder of this project.
 -  Get the lightstreamer-jms.js file from the [Lightstreamer JMS Gateway preview](http://www.lightstreamer.com/download) (please click the "From the Labs" section) and put it in the root folder of this project.
 
-Now, you need to configure the index.html of this example by specifying the name of the data adapter you are going to use. By default the demo will look for the <b>HornetQ</b> data adapter, please refer to the related [Service project]() for more details on the choice of a JMS broker to be used. 
+Now, you need to configure the index.html of this example by specifying the name of the data adapter you are going to use. By default the demo will look for the <b>HornetQ</b> data adapter, please refer to the related [Service project](https://github.com/Weswit/Lightstreamer-JMS-example-Chat-service-java) for more details on the choice of a JMS broker to be used. 
 To set the data adapter name and the connection name look where the connection is created:
 
 ```js
@@ -34,16 +34,16 @@ To set the data adapter name and the connection name look where the connection i
   });
 ```
 
-To access the demo from a web browser copy it somewhere under you root webserver directory. You can also add it to the standard Lightstreamer demo pages under "LightstreamerHome/pages/demos" directory and access it as: <i>http://_your_lightstreamer_http_address_/demos/StockListDemo_JMS/</i>.
+To access the demo from a web browser copy it somewhere under you root webserver directory. You can also add it to the standard Lightstreamer demo pages under "LightstreamerHome/pages/demos" directory and access it as: <i>http://_your_lightstreamer_http_address_/demos/ChatDemo_JMS/</i>.
 
 You can also simply start by opening the index.html file with your browser.
 
 
 # See Also #
 
-## Lightstreamer back-end Service needed by these demo clients ##
+## Lightstreamer back-end Service needed by this demo client ##
 
-* To be add: [Lightstreamer JMS Gateway Chat Demo Service]()
+* [Lightstreamer JMS Gateway Chat Demo Service](https://github.com/Weswit/Lightstreamer-JMS-example-Chat-service-java)
 
 ## Similar demo clients that may interest you ##
 
