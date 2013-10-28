@@ -108,7 +108,7 @@
 					onMessage: function(message) {
 
 						// Message received
-						var simpleChatMessage= message.body;
+						var simpleChatMessage= message.getObject();
 
 						// Update the dyna grid
 						chatGrid.updateRow(row, simpleChatMessage);
