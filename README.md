@@ -1,5 +1,7 @@
 # Lightstreamer JMS Gateway - Basic Chat Demo - HTML Client #
 
+<!-- START DESCRIPTION lightstreamer-jms-example-chat-client-javascript -->
+
 This project includes a front-end example based on the Chat Demo for Lightstreamer JMS gateway.
 
 The JMS Chat Demo implements an extremely simple chat application, where all the users connected to the page can exchange messages.<br>
@@ -9,6 +11,7 @@ Launch multiple instances of the demo, possibly on different machines, to apprec
 This page uses the <b>JMS JS Client API for Lightstreamer</b> on top of <b>JavaScript Client API for Lightstreamer</b> to handle the communications with Lightstreamer Server.<br>
 Check out the sources for further explanations.
 
+<!-- END DESCRIPTION lightstreamer-jms-example-chat-client-javascript -->
 # Deploy #
 
 Before you can run the demo of this project some dependencies need to be solved:
@@ -50,7 +53,10 @@ Please refer to Lightstreamer web site [download page](http://www.lightstreamer.
 
 ## Lightstreamer back-end Service needed by this demo client ##
 
+<!-- START RELATED_ENTRIES -->
 * [Lightstreamer JMS Gateway - Basic Chat Demo - Java (JMS) Service](https://github.com/Weswit/Lightstreamer-JMS-example-Chat-service-java)
+
+<!-- END RELATED_ENTRIES -->
 
 ## Similar demo clients that may interest you ##
 
