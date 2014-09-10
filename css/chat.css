@@ -23,7 +23,7 @@
   font-weight: bold;
   text-align: right;
 }
-.messagePanel {
+#messages {
   width: 500px;
   height: 380px;
   overflow: auto;
@@ -35,27 +35,15 @@
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: 5x;
-  padding-bottom: 3px;
+  padding: 5px 10px;
+  background-color: #FFFFE0;
 }
-.messageTimestamp {
+.timestamp {
   font-family: Sans-serif;
   font-size: 9pt;
   color: #000000;
 }
-.messageIP {
-  font-family: Sans-serif;
-  font-size: 8pt;
-  color: #000000;
-}
-.messageNick {
-  font-family: Sans-serif;
-  font-size: 7pt;
-  color: #808080;
-}
-.messageText{
+.message {
   font-family: Sans-serif;
   overflow: auto;
   color: #000090;
