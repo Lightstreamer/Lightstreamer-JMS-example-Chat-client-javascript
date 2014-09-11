@@ -54,7 +54,7 @@
     <form onSubmit="submitForm(); return false;" class="formPanel">
       <div class="sendTitle">Send a message:</div>
       <div class="formElements">
-        <input id="user_message" type="text" size="70" />
+        <input id="user_message" type="text" disabled size="70" />
         <input id="mex_button" type="submit" disabled value="Send" />
       </div>
     </form>
@@ -102,6 +102,9 @@
 
         // Start the connection
         conn.start();
+        
+        //enable form
+        $("input").prop('disabled', false);
 
       }, function(errorCode, errorMessage) {
 
@@ -114,17 +117,6 @@
         // Enable connection sharing and status widget (optional)
         lsClient.connectionSharing.enableSharing("JMSDemoCommonConnection", "ATTACH", "CREATE");
         lsClient.addListener(new StatusWidget("left", "0px", true));
-
-        // Add listener to enable buttons only when connected
-        lsClient.addListener({
-          onStatusChange: function(newStatus) {
-            if (newStatus.indexOf("CONNECTED") == 0) {
-              document.getElementById("mex_button").disabled= false;
-            } else {
-              document.getElementById("mex_button").disabled= true;
-            }
-          }
-        });
       });
     });
     
