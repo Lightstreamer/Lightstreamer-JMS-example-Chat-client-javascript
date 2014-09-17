@@ -32,23 +32,15 @@
   background-color: #ffffff;
 }
 .messageContainer {
+  font-family: Sans-serif;
+  font-weight: bold;
+  overflow: auto;
+  color: #000090;
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #000000;
   padding: 5px 10px;
   background-color: #FFFFE0;
-}
-.timestamp {
-  font-family: Sans-serif;
-  font-size: 9pt;
-  color: #000000;
-}
-.message {
-  font-family: Sans-serif;
-  overflow: auto;
-  color: #000090;
-  font-weight: bold;
-  padding-bottom: 15px;
 }
 .sendTitle {
   font-family: Sans-serif;
