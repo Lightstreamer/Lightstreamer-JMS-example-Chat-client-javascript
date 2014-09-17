@@ -67,7 +67,7 @@
         onConnectionCreated: function(conn) {
           // Connection succeeded, topic subscription
           var topicSession = conn.createSession(false, "PRE_ACK");
-          var topic = topicSession.createTopic("simpleChatTopic");
+          var topic = topicSession.createTopic("chatTopic");
           var consumer = topicSession.createConsumer(topic, null);
           var producer = topicSession.createProducer(topic, null);
                   
