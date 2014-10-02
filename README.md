@@ -20,7 +20,7 @@ Check out the sources for further explanations.
 
 ## Install
 
-Before you can run the demo of this project some dependencies need to be solved:
+Before you can run the demo of this project, some dependencies need to be solved:
 
 * Configure the JMS broker as described in the next section.
 * Configure and launch a Lightstreamer server instance running a properly configured JMS Gateway. Please refer to Lightstreamer web site [download page](http://download.lightstreamer.com/) to find *Lightstreamer server* and *JMS Gateway* download packages.
@@ -53,7 +53,7 @@ Open the `topics.conf` located under [EMSHome](http://www.tibco.com/products/aut
 
 ### Apache ActiveMQ
 
-There's no need to create the topic since [ActiveMQ](http://activemq.apache.org/) supports dynamic configuration of destinations.
+There's no need to create the topic because [ActiveMQ](http://activemq.apache.org/) supports dynamic configuration of destinations.
 
 ### JBossMQ
 
@@ -79,7 +79,7 @@ To set the data adapter name (and possibly the Lightstreamer server address) mod
 
 ## Launch
 
-To access the demo from a web browser copy it somewhere under your webserver root directory. You can also deploy it into the Lightstreamer internal webserver. 
+To access the demo from a web browser, copy it somewhere under your webserver root directory. You can also deploy it into the Lightstreamer internal webserver. 
 Depending on the browser in use and on the security settings you might also be able to launch the index.html file directly from the file system.
 
 ## See Also
