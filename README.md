@@ -31,9 +31,9 @@ Before you can run the demo of this project, some dependencies need to be solved
 
 ## JMS Broker
 
-This demo needs a JMS infrastructure to run. You can choose a JMS broker to be used for this example. You should have already configured the gateway adapter for you preferred
+This demo needs a JMS infrastructure to run. You can choose a JMS broker to be used for this example. You should have already configured the gateway adapter for your preferred
 broker by following the gateway adapter documentation. Now it is necessary to create the topic to be used by this demo. 
-We will show 4 examples using **HornetQ (AKA JBoss Messaging)**, **TIBCO EMS**, **Apache ActiveMQ** and **JBossMQ**. If you already know how to create a topic, go create a "chatTopic" topic and skip this part
+We will show 4 examples using **HornetQ (AKA JBoss Messaging)**, **TIBCO EMS**, **Apache ActiveMQ**, and **JBossMQ**. If you already know how to create a topic, go create a "chatTopic" topic and skip this part.
 
 ### HornetQ (AKA JBoss Messaging)
 
@@ -71,7 +71,7 @@ Open the `jbossmq-destinations-service.xml` located under [JBossHome](http://www
 ## Configure
 
 Now, you need to configure the `index.html` of this example by specifying the name of the data adapter you are going to use.
-To set the data adapter name (and possibly the Lightstreamer server address) modify the following line (as you can see HornetQ is pre-configured):
+To set the data adapter name (and possibly the Lightstreamer server address), modify the following line (as you can see HornetQ is pre-configured):
 
 ```js
   TopicConnectionFactory.createTopicConnection("http://localhost:8080/", "JMS", "HornetQ", null, null, {
@@ -80,7 +80,7 @@ To set the data adapter name (and possibly the Lightstreamer server address) mod
 ## Launch
 
 To access the demo from a web browser, copy it somewhere under your webserver root directory. You can also deploy it into the Lightstreamer internal webserver. 
-Depending on the browser in use and on the security settings you might also be able to launch the index.html file directly from the file system.
+Depending on the browser in use, and on the security settings, you might also be able to launch the index.html file directly from the file system.
 
 ## See Also
 
