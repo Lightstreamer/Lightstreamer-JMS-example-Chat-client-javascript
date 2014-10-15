@@ -47,7 +47,7 @@ Open the `hornetq-jms.xml` located under [HornetQHome](http://www.jboss.org/horn
 
 ```
 
-## TIBCO EMS
+### TIBCO EMS
 
 Open the `topics.conf` located under [EMSHome](http://www.tibco.com/products/automation/enterprise-messaging/enterprise-message-service)`/bin/` and append to it the line "chatTopic".
 
