@@ -25,10 +25,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <title>Lightstreamer :: JMS Chat Demo</title>
   <link rel="stylesheet" type="text/css" href="css/chat.css" />
-  <script src="http://demos.lightstreamer.com/commons/require.js"></script>
-  <script src="http://demos.lightstreamer.com/commons/lightstreamer.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.9/require.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script src="lightstreamer-jms.js"></script>
-  <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 </head>
 
 <body>
@@ -45,11 +44,11 @@
 
     <!-- Message container -->
     <div id="messages">
-      
-    
+
+
     </div>
-    
-    
+
+
     <!-- message submission form -->
     <form id="submitForm" class="formPanel">
       <div class="sendTitle">Send a message:</div>
@@ -62,15 +61,15 @@
 
   <!-- Application code -->
   <script type="text/javascript">
-    require(["TopicConnectionFactory", "StatusWidget"], function(TopicConnectionFactory, StatusWidget) {
-      TopicConnectionFactory.createTopicConnection("http://localhost:8080/", "JMS", "HornetQ", null, null, {
+    require(["TopicConnectionFactory"], function(TopicConnectionFactory) {
+      TopicConnectionFactory.createTopicConnection("http://localhost:8080/", "HornetQ", null, null, {
         onConnectionCreated: function(conn) {
           // Connection succeeded, topic subscription
           var topicSession = conn.createSession(false, "PRE_ACK");
           var topic = topicSession.createTopic("chatTopic");
           var consumer = topicSession.createConsumer(topic, null);
           var producer = topicSession.createProducer(topic, null);
-                  
+
           // Add a  listener to the message consumer
           consumer.setMessageListener({
             onMessage: function(message) {
@@ -79,7 +78,7 @@
                 .scrollTop($("#messages").prop("scrollHeight")); //move the scrollbar on the bottom
             }
           });
-      
+
           // Start the connection
           conn.start();
 
@@ -87,27 +86,26 @@
           $("input").prop('disabled', false);
           $("#submitForm").submit(function(event) {
             //get value from from and send to jms topic
-            
+
             event.preventDefault();
-            
+
             var text = $("#user_message").val();
             $("#user_message").val("");
             var message = topicSession.createTextMessage(text);
             producer.send(message);
-            
-            
+
+
           });
-          
-      
-        }, 
+
+
+        },
         onConnectionFailed: function(errorCode, errorMessage) {
           // Connection failed, show the error
           alert("Error: " + errorCode + " " + errorMessage);
         },
         onLSClient: function(lsClient) {
-          // Enable connection sharing and status widget (optional)
+          // Enable connection sharing
           lsClient.connectionSharing.enableSharing("JMSDemoCommonConnection", "ATTACH", "CREATE");
-          lsClient.addListener(new StatusWidget("left", "0px", true));
         }
       });
     });
