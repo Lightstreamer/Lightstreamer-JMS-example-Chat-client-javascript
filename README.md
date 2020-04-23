@@ -62,7 +62,7 @@ To set the JMS connector name (and possibly the JMS Extender address), modify th
 
 ## Launch
 
-To access the demo from a web browser, copy it somewhere under your webserver root directory. You can also add it to the JMS Extender internal web server pages under `JMSExtenderHome/pages` directory by copying it there with a folder name such as `ChatDemo_JMS`. Subsequently you may access it as: <i>http://_your_jms_extender_http_address_/ChatDemo_JMS/</i>.
+To access the demo from a web browser, copy it somewhere under your webserver root directory. You can also add it to the JMS Extender internal web server pages under `<JMS_EXTENDER_HOME>/pages` directory by copying it there with a folder name such as `ChatDemo_JMS`. Subsequently you may access it as: [http://_your_jms_extender_http_address_/ChatDemo_JMS/](http://_your_jms_extender_http_address_/ChatDemo_JMS/).
 Depending on the browser in use, and on the security settings, you might also be able to launch the index.html file directly from the file system.
 
 ## See Also
