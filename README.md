@@ -34,7 +34,7 @@ You can choose a JMS broker to be used for this example.
 You should have already configured the JMS connector for your preferred broker by following the JMS Extender documentation. Also have a look at `<JMS_EXTENDER_HOME>/GETTING_STARTED.TXT` for how to add the third-party client library jars.
 
 Now it is necessary to create the topic to be used by this demo.
-We will show 3 examples using **Apache ActiveMQ**, **Apache ActiveMQ Artemis**, and **TIBCO EMS**,. If you already know how to create a topic, go create a "chatTopic" topic and skip this part.
+We will show 3 examples using **Apache ActiveMQ**, **Apache ActiveMQ Artemis**, and **TIBCO EMS**. If you already know how to create a topic, go create a "chatTopic" topic and skip this part.
 
 #### Apache ActiveMQ
 
