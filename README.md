@@ -29,37 +29,27 @@ Before you can run the demo of this project, some dependencies need to be solved
 
 ## JMS Broker
 
-This demo needs a JMS infrastructure to run. You can choose a JMS broker to be used for this example. You should have already configured the JMS connector for your preferred broker by following the JMS Extender documentation. Now it is necessary to create the topic to be used by this demo.
-We will show 4 examples using **HornetQ (AKA JBoss Messaging)**, **TIBCO EMS**, **Apache ActiveMQ**, and **JBossMQ**. If you already know how to create a topic, go create a "chatTopic" topic and skip this part.
+This demo needs a JMS infrastructure to run.
+You can choose a JMS broker to be used for this example.
+You should have already configured the JMS connector for your preferred broker by following the JMS Extender documentation. Also have a look at `<JMS_EXTENDER_HOME>/GETTING_STARTED.TXT` for how to add the third-party client library jars.
 
-### HornetQ (AKA JBoss Messaging)
+Now it is necessary to create the topic to be used by this demo.
+We will show 3 examples using **Apache ActiveMQ**, **Apache ActiveMQ Artemis**, and **TIBCO EMS**,. If you already know how to create a topic, go create a "chatTopic" topic and skip this part.
 
-Open the `hornetq-jms.xml` located under [HornetQHome](http://www.jboss.org/hornetq)`/config/stand-alone/non-clustered` and add the following node:
+#### Apache ActiveMQ
 
-```xml
-   <topic name="chatTopic">
-      <entry name="chatTopic"/>
-   </topic>
-```
+There's no need to create topics or queues, because [ActiveMQ](http://activemq.apache.org/components/classic/) supports dynamic configuration of destinations.
 
-### TIBCO EMS
 
-Open the `topics.conf` located under [EMSHome](http://www.tibco.com/products/automation/enterprise-messaging/enterprise-message-service)`/bin/` and append to it the line "chatTopic".
+#### Apache ActiveMQ Artemis
 
-### Apache ActiveMQ
+There's no need to create topics or queues, because [ActiveMQ Artemis](http://activemq.apache.org/components/artemis/) supports dynamic configuration of destinations.
 
-There's no need to create the topic because [ActiveMQ](http://activemq.apache.org/) supports dynamic configuration of destinations.
 
-### JBossMQ
+#### TIBCO EMS
 
-Open the `jbossmq-destinations-service.xml` located under [JBossHome](http://www.jboss.org/products/amq)`/server/default/deploy/jms/` and add the mbean node as shown below:
+Open the `topics.conf` file located under [EMSHome](http://www.tibco.com/products/automation/messaging/enterprise-messaging/enterprise-message-service/default.jsp)`/bin/` and append to it *chatTopic*.
 
-```xml
-  <mbean code="org.jboss.mq.server.jmx.Topic"
-    name="jboss.mq.destination:service=Topic,name=chatTopic">
-    <depends optional-attribute-name="DestinationManager">jboss.mq:service=DestinationManager</depends>
-  </mbean>
-```
 
 ## Configure
 
