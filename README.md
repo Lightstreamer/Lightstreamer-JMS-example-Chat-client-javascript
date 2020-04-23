@@ -54,10 +54,10 @@ Open the `topics.conf` file located under [EMSHome](http://www.tibco.com/product
 ## Configure
 
 Now, you need to configure the `index.html` of this example by specifying the name of the JMS connector you are going to use.
-To set the JMS connector name (and possibly the JMS Extender address), modify the following line (as you can see HornetQ is pre-configured):
+To set the JMS connector name (and possibly the JMS Extender address), modify the following line (as you can see `ActiveMQ` is pre-configured):
 
 ```js
-  jms.TopicConnectionFactory.createTopicConnection("http://localhost:8080/", "HornetQ", null, null, {
+  jms.TopicConnectionFactory.createTopicConnection("http://localhost:8080/", "ActiveMQ", null, null, {
 ```
 
 ## Launch
