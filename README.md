@@ -24,9 +24,8 @@ Before you can run the demo of this project, some dependencies need to be solved
 
 * Configure the JMS broker as described in the next section.
 * Configure and launch a Lightstreamer JMS Extender instance. Please refer to Lightstreamer web site [download page](http://download.lightstreamer.com/) to find the JMS Extender download package.
-* Get the `lightstreamer-jms.js` file from the [Lightstreamer JMS Extender](http://download.lightstreamer.com/#jms) and put it in the root folder of this project.
-* RequireJS is currently hot-linked in the html page: you may want to replace it with a local version and/or to upgrade its version.
 * jQuery is currently hot-linked in the html page: you may want to replace it with a local version and/or to upgrade its version.
+* As the latest version of the Lightstreamer JMS Extender JavaScript library is always available through [unpkg](https://unpkg.com/lightstreamer-jms-web-client), it is hot-linked in the html page.
 
 ## JMS Broker
 
@@ -68,7 +67,7 @@ Now, you need to configure the `index.html` of this example by specifying the na
 To set the JMS connector name (and possibly the JMS Extender address), modify the following line (as you can see HornetQ is pre-configured):
 
 ```js
-  TopicConnectionFactory.createTopicConnection("http://localhost:8080/", "HornetQ", null, null, {
+  jms.TopicConnectionFactory.createTopicConnection("http://localhost:8080/", "HornetQ", null, null, {
 ```
 
 ## Launch
@@ -86,5 +85,5 @@ Depending on the browser in use, and on the security settings, you might also be
 
 ## Lightstreamer Compatibility Notes
 
-* Compatible with Lightstreamer JMS Extender JavaScript Client library version 1.2 or newer.
-* Compatible with Lightstreamer JMS Extender since version 1.5 or newer.
+* Compatible with Lightstreamer JMS Extender JavaScript Client library version 2.0.0 or newer.
+* Compatible with Lightstreamer JMS Extender since version 2.0.0 or newer.
