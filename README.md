@@ -10,7 +10,7 @@ The JMS Chat Demo implements an extremely simple chat application, where all the
 
 Launch multiple instances of the demo, possibly on different machines, to appreciate the message broadcast capability.
 
-This page uses the <b>Lightstreamer JMS Extender JavaScript Client API</b> to handle communications with JMS Extender.
+This page uses the _[Lightstreamer JMS Extender Web Client API](https://www.npmjs.com/package/lightstreamer-jms-web-client/)_ to handle communications with JMS Extender.
 
 Check out the sources for further explanations.
 
@@ -48,7 +48,7 @@ There's no need to create topics or queues, because [ActiveMQ Artemis](http://ac
 
 #### TIBCO EMS
 
-Open the `topics.conf` file located under [EMSHome](http://www.tibco.com/products/automation/messaging/enterprise-messaging/enterprise-message-service/default.jsp)`/bin/` and append to it *chatTopic*.
+Open the `topics.conf` file located under `<EMSHome>/bin/` and append to it *chatTopic*.
 
 
 ## Configure
