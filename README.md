@@ -48,7 +48,7 @@ There's no need to create topics or queues, because [ActiveMQ Artemis](http://ac
 
 #### TIBCO EMS
 
-Open the `topics.conf` file located and append to it `chatTopic`.
+Open the `topics.conf` file and append to it `chatTopic`.
 
 
 ## Configure
