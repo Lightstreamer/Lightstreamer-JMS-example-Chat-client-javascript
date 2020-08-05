@@ -8,8 +8,6 @@ This chat demo implements an extremely simple chat application, where all the us
 
 Launch multiple instances of the demo, possibly on different machines, to appreciate the message broadcast capability.
 
-This page uses the _[Lightstreamer JMS Extender Web Client API](https://www.npmjs.com/package/lightstreamer-jms-web-client/)_ to handle communications with JMS Extender.
-
 Check out the sources for further explanations.
 
 ![screenshot](screen-large.png)
