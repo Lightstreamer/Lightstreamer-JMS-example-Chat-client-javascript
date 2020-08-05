@@ -1,10 +1,10 @@
 # Lightstreamer JMS Extender - Basic Chat Demo - HTML Client
 
-This project includes a simple JMS-based chat.
+This project contains a sample JMS-based chat application that shows how the _[Lightstreamer JMS Extender JavaScript Client Library](https://www.npmjs.com/package/lightstreamer-jms-node-client)_ can be used to connect to Lightstreamer JMS Extender.
 
 ## Details
 
-The JMS Chat Demo implements an extremely simple chat application, where all the users connected to the page can exchange messages.
+This chat demo implements an extremely simple chat application, where all the users connected to the page can exchange messages.
 
 Launch multiple instances of the demo, possibly on different machines, to appreciate the message broadcast capability.
 
