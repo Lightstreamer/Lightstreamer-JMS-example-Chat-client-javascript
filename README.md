@@ -1,7 +1,5 @@
 # Lightstreamer JMS Extender - Basic Chat Demo - HTML Client
 
-<!-- START DESCRIPTION lightstreamer-jms-example-chat-client-javascript -->
-
 This project includes a simple JMS-based chat.
 
 ## Details
@@ -15,8 +13,6 @@ This page uses the _[Lightstreamer JMS Extender Web Client API](https://www.npmj
 Check out the sources for further explanations.
 
 ![screenshot](screen-large.png)
-
-<!-- END DESCRIPTION lightstreamer-jms-example-chat-client-javascript -->
 
 ## Install
 
